@@ -1,0 +1,5 @@
+nivel_vueltas,duracion_s,id_modelo,k_optimo,estados_fusionados,detalle_clusters
+1,410,30,5,ninguno,cluster2=P0.05kW(σ0.17)n=22→apagado; cluster1=P1.83kW(σ0.11)n=100→vacio; cluster3=P3.19kW(σ0.17)n=100→ligera; cluster0=P5.40kW(σ0.20)n=120→media; cluster4=P7.74kW(σ0.19)n=70→plena
+2,820,31,5,ninguno,cluster4=P0.11kW(σ0.24)n=39→apagado; cluster1=P1.83kW(σ0.15)n=204→vacio; cluster2=P3.21kW(σ0.18)n=200→ligera; cluster0=P5.39kW(σ0.20)n=240→media; cluster3=P7.73kW(σ0.17)n=139→plena
+4,1640.0161743164062,,,ERROR_TIMEOUT,
+8,3280.0316832065582,,,ERROR_TIMEOUT,

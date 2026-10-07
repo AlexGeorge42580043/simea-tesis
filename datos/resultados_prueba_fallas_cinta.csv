@@ -1,0 +1,101 @@
+caso,estado,falla,intensidad,esperado_detecta,esperado_severidad,esperado_firma,detectada,severidad_real,firma_real,timestamp_alerta,clasificacion
+1,apagado,sobrecarga,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+2,apagado,sobrecarga,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+3,apagado,sobrecarga,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+4,apagado,sobrecarga,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+5,apagado,sobrecarga,1.0,True,AVISO,Potencia: aumento significativo (3.4σ) | Corriente: aumento significativo (3.1σ),False,,,,FALSO_NEGATIVO
+6,apagado,falla,0.1,True,AVISO,Corriente: aumento leve (2.2σ) | Factor de potencia: aumento significativo (3.2σ),False,,,,FALSO_NEGATIVO
+7,apagado,falla,0.3,True,CRITICA,Corriente: aumento marcado (7.0σ) | Factor de potencia: aumento significativo (3.2σ),False,,,,FALSO_NEGATIVO
+8,apagado,falla,0.5,True,CRITICA,Corriente: aumento marcado (11.7σ) | Factor de potencia: aumento significativo (3.2σ),False,,,,FALSO_NEGATIVO
+9,apagado,falla,0.7,True,CRITICA,Potencia: caída marcado (11.6σ) | Factor de potencia: caída marcado (6.7σ),False,,,,FALSO_NEGATIVO
+10,apagado,falla,1.0,True,CRITICA,Potencia: caída marcado (11.1σ) | Corriente: aumento marcado (7.1σ) | Factor de potencia: caída marcado (6.7σ),False,,,,FALSO_NEGATIVO
+11,apagado,subtension,0.1,True,CRITICA,Factor de potencia: aumento marcado (6.6σ),False,,,,FALSO_NEGATIVO
+12,apagado,subtension,0.3,True,CRITICA,Factor de potencia: aumento marcado (6.6σ),False,,,,FALSO_NEGATIVO
+13,apagado,subtension,0.5,True,CRITICA,Factor de potencia: aumento marcado (6.6σ),False,,,,FALSO_NEGATIVO
+14,apagado,subtension,0.7,True,CRITICA,Factor de potencia: aumento marcado (6.6σ),False,,,,FALSO_NEGATIVO
+15,apagado,subtension,1.0,True,CRITICA,Factor de potencia: aumento marcado (6.6σ),False,,,,FALSO_NEGATIVO
+16,apagado,degradacion,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+17,apagado,degradacion,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+18,apagado,degradacion,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+19,apagado,degradacion,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+20,apagado,degradacion,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+21,vacio,sobrecarga,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+22,vacio,sobrecarga,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+23,vacio,sobrecarga,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+24,vacio,sobrecarga,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+25,vacio,sobrecarga,1.0,True,AVISO,Potencia: aumento significativo (3.4σ) | Corriente: aumento significativo (3.1σ),True,AVISO,Potencia: aumento significativo (3.5σ) | Corriente: aumento significativo (3.1σ) | Factor de potencia: aumento leve (2.1σ),2026-09-28T23:16:38.415000+00:00,DETECTADA_CORRECTA
+26,vacio,falla,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+27,vacio,falla,0.3,True,CRITICA,Corriente: aumento marcado (6.4σ),True,CRITICA,Corriente: aumento marcado (6.3σ),2026-09-28T23:18:16.504000+00:00,DETECTADA_CORRECTA
+28,vacio,falla,0.5,True,CRITICA,Corriente: aumento marcado (10.6σ),True,CRITICA,Corriente: aumento marcado (10.5σ),2026-09-28T23:19:09.554000+00:00,DETECTADA_CORRECTA
+29,vacio,falla,0.7,True,CRITICA,Corriente: aumento marcado (14.9σ) | Factor de potencia: caída leve (2.4σ),True,CRITICA,Corriente: aumento marcado (15.0σ) | Factor de potencia: caída leve (2.4σ),2026-09-28T23:20:03.606000+00:00,DETECTADA_CORRECTA
+30,vacio,falla,1.0,True,CRITICA,Corriente: aumento marcado (21.2σ) | Factor de potencia: caída significativo (3.4σ),True,CRITICA,Corriente: aumento marcado (20.9σ) | Factor de potencia: caída significativo (3.4σ),2026-09-28T23:20:57.654000+00:00,DETECTADA_CORRECTA
+31,vacio,subtension,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+32,vacio,subtension,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+33,vacio,subtension,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+34,vacio,subtension,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+35,vacio,subtension,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+36,vacio,degradacion,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+37,vacio,degradacion,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+38,vacio,degradacion,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+39,vacio,degradacion,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+40,vacio,degradacion,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+41,ligera,sobrecarga,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+42,ligera,sobrecarga,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+43,ligera,sobrecarga,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+44,ligera,sobrecarga,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+45,ligera,sobrecarga,1.0,True,AVISO,Potencia: aumento significativo (3.4σ) | Corriente: aumento significativo (3.1σ),True,ALERTA,Potencia: aumento significativo (3.5σ) | Corriente: aumento significativo (3.1σ),2026-09-28T23:34:30.439000+00:00,DETECTADA_DIFERENTE: severidad esperada=AVISO real=ALERTA
+46,ligera,falla,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+47,ligera,falla,0.3,True,CRITICA,Corriente: aumento marcado (6.0σ) | Factor de potencia: caída leve (2.7σ),True,CRITICA,Corriente: aumento marcado (6.0σ) | Factor de potencia: caída leve (2.6σ),2026-09-28T23:36:11.534000+00:00,DETECTADA_CORRECTA
+48,ligera,falla,0.5,True,CRITICA,Corriente: aumento marcado (10.1σ) | Factor de potencia: caída significativo (4.4σ),True,CRITICA,Corriente: aumento marcado (9.9σ) | Factor de potencia: caída significativo (4.5σ),2026-09-28T23:37:04.582000+00:00,DETECTADA_CORRECTA
+49,ligera,falla,0.7,True,CRITICA,Corriente: aumento marcado (14.2σ) | Factor de potencia: caída marcado (6.2σ),True,CRITICA,Corriente: aumento marcado (14.2σ) | Factor de potencia: caída marcado (6.1σ),2026-09-28T23:37:59.628000+00:00,DETECTADA_CORRECTA
+50,ligera,falla,1.0,True,CRITICA,Corriente: aumento marcado (20.3σ) | Factor de potencia: caída marcado (8.9σ),True,CRITICA,Corriente: aumento marcado (20.6σ) | Factor de potencia: caída marcado (8.9σ),2026-09-28T23:38:52.725000+00:00,DETECTADA_CORRECTA
+51,ligera,subtension,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+52,ligera,subtension,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+53,ligera,subtension,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+54,ligera,subtension,0.7,True,ALERTA,Corriente: aumento leve (2.4σ) | Factor de potencia: caída significativo (3.9σ),True,ALERTA,Corriente: aumento leve (2.5σ) | Factor de potencia: caída significativo (3.9σ),2026-09-28T23:42:26.923000+00:00,DETECTADA_CORRECTA
+55,ligera,subtension,1.0,True,ALERTA,Corriente: aumento significativo (3.5σ) | Factor de potencia: caída marcado (5.6σ),True,ALERTA,Corriente: aumento significativo (3.5σ) | Factor de potencia: caída marcado (5.7σ),2026-09-28T23:43:19.970000+00:00,DETECTADA_CORRECTA
+56,ligera,degradacion,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+57,ligera,degradacion,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+58,ligera,degradacion,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+59,ligera,degradacion,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+60,ligera,degradacion,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+61,media,sobrecarga,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+62,media,sobrecarga,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+63,media,sobrecarga,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+64,media,sobrecarga,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+65,media,sobrecarga,1.0,True,AVISO,Potencia: aumento significativo (3.4σ) | Corriente: aumento significativo (3.1σ),True,AVISO,Potencia: aumento significativo (3.5σ) | Corriente: aumento significativo (3.1σ),2026-09-28T23:52:23.469000+00:00,DETECTADA_CORRECTA
+66,media,falla,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+67,media,falla,0.3,True,AVISO,Factor de potencia: caída significativo (3.2σ),True,AVISO,Factor de potencia: caída significativo (3.2σ),2026-09-28T23:54:13.571000+00:00,DETECTADA_CORRECTA
+68,media,falla,0.5,True,ALERTA,Factor de potencia: caída significativo (4.9σ),True,ALERTA,Factor de potencia: caída significativo (4.8σ),2026-09-28T23:55:05.614000+00:00,DETECTADA_CORRECTA
+69,media,falla,0.7,True,CRITICA,Corriente: aumento leve (2.0σ) | Factor de potencia: caída marcado (6.5σ),True,CRITICA,Corriente: aumento leve (2.0σ) | Factor de potencia: caída marcado (6.4σ),2026-09-28T23:55:59.662000+00:00,DETECTADA_CORRECTA
+70,media,falla,1.0,True,CRITICA,Corriente: aumento significativo (3.2σ) | Factor de potencia: caída marcado (9.0σ),True,CRITICA,Corriente: aumento significativo (3.3σ) | Factor de potencia: caída marcado (8.9σ),2026-09-28T23:56:53.711000+00:00,DETECTADA_CORRECTA
+71,media,subtension,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+72,media,subtension,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+73,media,subtension,0.5,True,AVISO,Factor de potencia: caída significativo (3.3σ),True,AVISO,Factor de potencia: caída significativo (3.4σ),2026-09-28T23:59:36.864000+00:00,DETECTADA_CORRECTA
+74,media,subtension,0.7,True,ALERTA,Factor de potencia: caída significativo (4.4σ),True,ALERTA,Factor de potencia: caída significativo (4.3σ),2026-09-29T00:00:29.911000+00:00,DETECTADA_CORRECTA
+75,media,subtension,1.0,True,ALERTA,Factor de potencia: caída marcado (5.9σ),True,ALERTA,Factor de potencia: caída marcado (5.8σ),2026-09-29T00:01:23.959000+00:00,DETECTADA_CORRECTA
+76,media,degradacion,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+77,media,degradacion,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+78,media,degradacion,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+79,media,degradacion,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+80,media,degradacion,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+81,plena,sobrecarga,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+82,plena,sobrecarga,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+83,plena,sobrecarga,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+84,plena,sobrecarga,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+85,plena,sobrecarga,1.0,True,AVISO,Potencia: aumento significativo (3.4σ) | Corriente: aumento significativo (3.1σ),True,AVISO,Potencia: aumento significativo (3.3σ) | Corriente: aumento significativo (3.1σ),2026-09-29T00:10:28.471000+00:00,DETECTADA_CORRECTA
+86,plena,falla,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+87,plena,falla,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+88,plena,falla,0.5,True,AVISO,Corriente: aumento significativo (3.3σ) | Factor de potencia: caída significativo (3.2σ),True,AVISO,Corriente: aumento significativo (3.3σ) | Factor de potencia: caída significativo (3.2σ),2026-09-29T00:13:07.623000+00:00,DETECTADA_CORRECTA
+89,plena,falla,0.7,True,ALERTA,Corriente: aumento significativo (4.1σ) | Factor de potencia: caída marcado (5.0σ),True,ALERTA,Corriente: aumento significativo (4.1σ) | Factor de potencia: caída marcado (5.0σ),2026-09-29T00:14:00.676000+00:00,DETECTADA_CORRECTA
+90,plena,falla,1.0,True,CRITICA,Corriente: aumento marcado (5.3σ) | Factor de potencia: caída marcado (7.7σ),True,CRITICA,Corriente: aumento marcado (5.3σ) | Factor de potencia: caída marcado (7.7σ),2026-09-29T00:14:53.727000+00:00,DETECTADA_CORRECTA
+91,plena,subtension,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+92,plena,subtension,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+93,plena,subtension,0.5,True,AVISO,Patrón multivariable anómalo detectado por análisis global,True,AVISO,Patrón multivariable anómalo detectado por análisis global,2026-09-29T00:17:32.885000+00:00,DETECTADA_CORRECTA
+94,plena,subtension,0.7,True,AVISO,Corriente: aumento leve (2.3σ) | Factor de potencia: caída leve (2.6σ),True,AVISO,Corriente: aumento leve (2.3σ) | Factor de potencia: caída leve (2.7σ),2026-09-29T00:18:29.938000+00:00,DETECTADA_CORRECTA
+95,plena,subtension,1.0,True,ALERTA,Corriente: aumento leve (2.7σ) | Factor de potencia: caída significativo (4.3σ),True,ALERTA,Corriente: aumento leve (2.8σ) | Factor de potencia: caída significativo (4.3σ),2026-09-29T00:19:21.984000+00:00,DETECTADA_CORRECTA
+96,plena,degradacion,0.1,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+97,plena,degradacion,0.3,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+98,plena,degradacion,0.5,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+99,plena,degradacion,0.7,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION
+100,plena,degradacion,1.0,False,NO_DETECTA,,False,,,,OK_SIN_DETECCION

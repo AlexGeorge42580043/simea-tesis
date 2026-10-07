@@ -1,0 +1,160 @@
+[
+    {
+        "id": "f6f2187d.f17ca8",
+        "type": "tab",
+        "label": "Flow 1",
+        "disabled": false,
+        "info": ""
+    },
+    {
+        "id": "d0f23883d3a43a28",
+        "type": "influxdb",
+        "hostname": "127.0.0.1",
+        "port": 8086,
+        "protocol": "http",
+        "database": "database",
+        "name": "",
+        "usetls": false,
+        "tls": "",
+        "influxdbVersion": "2.0",
+        "url": "http://influxdb:8086",
+        "timeout": 10,
+        "rejectUnauthorized": true
+    },
+    {
+        "id": "9c4c856d3bfbd152",
+        "type": "mqtt-broker",
+        "name": "",
+        "broker": "mosquitto",
+        "port": 1883,
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": 4,
+        "keepalive": 60,
+        "cleansession": true,
+        "autoUnsubscribe": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthRetain": "false",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closeRetain": "false",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willRetain": "false",
+        "willPayload": "",
+        "willMsg": {},
+        "userProps": "",
+        "sessionExpiry": ""
+    },
+    {
+        "id": "21444ad4ce25d70e",
+        "type": "mqtt in",
+        "z": "f6f2187d.f17ca8",
+        "name": "Sensor Motor 1",
+        "topic": "planta/+/mediciones",
+        "qos": "0",
+        "datatype": "auto-detect",
+        "broker": "9c4c856d3bfbd152",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 400,
+        "y": 400,
+        "wires": [
+            [
+                "3eb5edbcdb1e55bf",
+                "2b8aa142dd721050"
+            ]
+        ]
+    },
+    {
+        "id": "6b5e015224846df7",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Preparar datos para InfluxDB",
+        "func": "var datos = msg.payload;\nif (typeof datos === \"string\") {\n    datos = JSON.parse(datos);\n}\nif (!datos.equipo_id) {\n    node.warn(\"Falta equipo_id en el mensaje: \" + JSON.stringify(datos));\n}\nmsg.payload = [\n    {\n        potencia_kw: datos.potencia_kw,\n        corriente_a: datos.corriente_a,\n        factor_potencia: datos.factor_potencia\n    },\n    {\n        equipo_id: datos.equipo_id\n    }\n];\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 940,
+        "y": 400,
+        "wires": [
+            [
+                "b36c0af5321518a9"
+            ]
+        ]
+    },
+    {
+        "id": "b36c0af5321518a9",
+        "type": "influxdb out",
+        "z": "f6f2187d.f17ca8",
+        "influxdb": "d0f23883d3a43a28",
+        "name": "Escribir en InfluxDB",
+        "measurement": "mediciones",
+        "precision": "",
+        "retentionPolicy": "",
+        "database": "database",
+        "precisionV18FluxV20": "ms",
+        "retentionPolicyV18Flux": "",
+        "org": "tesis",
+        "bucket": "energia",
+        "x": 1210,
+        "y": 400,
+        "wires": []
+    },
+    {
+        "id": "3eb5edbcdb1e55bf",
+        "type": "debug",
+        "z": "f6f2187d.f17ca8",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 560,
+        "y": 640,
+        "wires": []
+    },
+    {
+        "id": "2b8aa142dd721050",
+        "type": "function",
+        "z": "f6f2187d.f17ca8",
+        "name": "Filtro promedio móvil",
+        "func": "// Promedio móvil ventana=5, con buffers separados por equipo\nvar datos = msg.payload;\nvar equipoId = datos.equipo_id;\n\nif (!equipoId) {\n    node.warn(\"Mensaje sin equipo_id, se descarta: \" + JSON.stringify(datos));\n    return null;\n}\n\n// Buffers separados por equipo. context.buffers = { \"motor_cinta_1\": [...], \"bomba_...\": [...] }\ncontext.buffers = context.buffers || {};\nif (!context.buffers[equipoId]) {\n    context.buffers[equipoId] = [];\n}\n\nvar buffer = context.buffers[equipoId];\nbuffer.push({\n    potencia_kw: datos.potencia_kw,\n    corriente_a: datos.corriente_a,\n    factor_potencia: datos.factor_potencia\n});\n\nif (buffer.length > 5) buffer.shift();\n\n// Calcular promedios sobre el buffer de este equipo\nvar suma_p = 0, suma_i = 0, suma_fp = 0;\nfor (var i = 0; i < buffer.length; i++) {\n    suma_p += buffer[i].potencia_kw;\n    suma_i += buffer[i].corriente_a;\n    suma_fp += buffer[i].factor_potencia;\n}\n\nmsg.payload = {\n    equipo_id: equipoId,\n    potencia_kw: suma_p / buffer.length,\n    corriente_a: suma_i / buffer.length,\n    factor_potencia: suma_fp / buffer.length\n};\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "context.set('buffer_p', []);\ncontext.set('buffer_i', []);\ncontext.set('buffer_fp', []);\nreturn;",
+        "finalize": "",
+        "libs": [],
+        "x": 660,
+        "y": 400,
+        "wires": [
+            [
+                "6b5e015224846df7"
+            ]
+        ]
+    },
+    {
+        "id": "93004b7365d5d353",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-influxdb": "0.7.0"
+        }
+    }
+]

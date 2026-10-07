@@ -1,0 +1,5 @@
+﻿Fase;Equipo;Condición evaluada;Resultado
+Etapa A - Línea base;Cinta transportadora;13,8 min de operación normal (2 vueltas del ciclo completo, sin fallas);0 falsos positivos
+Etapa A - Línea base;Ventilador de extracción;13,8 min de operación normal (incluye transitorio de arranque);0 falsos positivos
+Multi-equipo;Cinta transportadora;Falla eléctrica inyectada (intensidad 0,5) desde estado media;Detectada correctamente (severidad ALERTA)
+Multi-equipo;Ventilador de extracción;Sin falla (equipo control, monitoreado en simultáneo);0 alertas — sin contaminación cruzada

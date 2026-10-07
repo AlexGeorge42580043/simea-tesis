@@ -1,0 +1,9 @@
+# Dependencias del generador (cinta + ventilador + orquestadores) del sistema SIMEA
+# Instalación: pip install -r requirements.txt
+
+numpy>=1.24.0
+# <2.0: el código usa mqtt.Client() sin callback_api_version (API de paho-mqtt 1.x)
+paho-mqtt>=1.6.0,<2.0
+psycopg2-binary>=2.9.0
+python-dotenv>=1.0.0
+scipy>=1.11.0

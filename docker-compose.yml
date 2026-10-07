@@ -1,0 +1,140 @@
+# docker-compose.yml - SIMEA
+# Orquestación completa del sistema de monitoreo energético
+# basado en IoT.
+
+version: '3.8'
+
+services:
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: simea_mosquitto
+    restart: unless-stopped
+    ports:
+      - "${MQTT_PORT:-1883}:1883"
+    volumes:
+      - ./docker/mosquitto/config/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+      - mosquitto_data:/mosquitto/data
+      - mosquitto_log:/mosquitto/log
+    networks:
+      - simea_net
+
+  influxdb:
+    image: influxdb:2.7
+    container_name: simea_influxdb
+    restart: unless-stopped
+    ports:
+      - "${INFLUXDB_PORT:-8086}:8086"
+    environment:
+      - DOCKER_INFLUXDB_INIT_MODE=setup
+      - DOCKER_INFLUXDB_INIT_USERNAME=${INFLUXDB_USERNAME}
+      - DOCKER_INFLUXDB_INIT_PASSWORD=${INFLUXDB_PASSWORD}
+      - DOCKER_INFLUXDB_INIT_ORG=${INFLUXDB_ORG}
+      - DOCKER_INFLUXDB_INIT_BUCKET=${INFLUXDB_BUCKET}
+      - DOCKER_INFLUXDB_INIT_ADMIN_TOKEN=${INFLUXDB_TOKEN}
+    volumes:
+      - influxdb_data:/var/lib/influxdb2
+      - influxdb_config:/etc/influxdb2
+    networks:
+      - simea_net
+
+  postgres:
+    image: postgres:15
+    container_name: simea_postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DB}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - simea_net
+
+  nodered:
+    image: nodered/node-red:latest
+    container_name: simea_nodered
+    restart: unless-stopped
+    ports:
+      - "${NODERED_PORT:-1880}:1880"
+    volumes:
+      - nodered_data:/data
+    networks:
+      - simea_net
+    depends_on:
+      - mosquitto
+      - influxdb
+
+  backend:
+    build: ./backend
+    container_name: simea_backend
+    restart: unless-stopped
+    ports:
+      - "${API_PORT:-8000}:8000"
+    env_file:
+      - .env
+    volumes:
+      - modelos_data:/app/analizador/modelos_entrenados
+      - logs_entrenamiento_data:/app/analizador/logs_entrenamiento
+    depends_on:
+      - influxdb
+      - postgres
+      - mosquitto
+    networks:
+      - simea_net
+
+  monitoreo:
+    build: ./backend
+    container_name: simea_monitoreo
+    restart: unless-stopped
+    command: python analizador/monitoreo.py
+    env_file:
+      - .env
+    volumes:
+      - modelos_data:/app/analizador/modelos_entrenados
+    depends_on:
+      - influxdb
+      - postgres
+    networks:
+      - simea_net
+
+  generador_cinta:
+    build: ./generador
+    container_name: simea_generador_cinta
+    restart: "no"
+    profiles: ["aprendizaje"]
+    command: python orquestadores/orquestador_cinta.py
+    env_file:
+      - .env
+    depends_on:
+      - mosquitto
+    networks:
+      - simea_net
+
+  generador_ventilador:
+    build: ./generador
+    container_name: simea_generador_ventilador
+    restart: "no"
+    profiles: ["aprendizaje"]
+    command: python orquestadores/orquestador_ventilador.py
+    env_file:
+      - .env
+    depends_on:
+      - mosquitto
+    networks:
+      - simea_net
+
+volumes:
+  mosquitto_data:
+  mosquitto_log:
+  influxdb_data:
+  influxdb_config:
+  postgres_data:
+  nodered_data:
+  modelos_data:
+  logs_entrenamiento_data:
+
+networks:
+  simea_net:
+    driver: bridge

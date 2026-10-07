@@ -1,0 +1,5 @@
+fase,equipo,duracion_s,alertas_generadas,detalle
+1_baseline,motor_cinta_1,830.030078,0,[]
+1_baseline,ventilador_extraccion_1,830.030078,0,[]
+2_multiequipo,motor_cinta_1,35,1,esperado=SI detectada=True severidad=ALERTA
+2_multiequipo,ventilador_extraccion_1,35,0,esperado=NO contaminado=False

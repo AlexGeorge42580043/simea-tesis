@@ -1,0 +1,5 @@
+nivel_vueltas,duracion_min,id_modelo,k_optimo,ciclico,estados_fusionados
+1,6.8,30,5,False,ninguno
+2,13.7,31,5,False,ninguno
+4,27.3,33,5,True,ninguno
+8,54.7,32,5,True,ninguno

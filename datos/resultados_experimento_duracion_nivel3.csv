@@ -1,0 +1,2 @@
+nivel_vueltas,duracion_s,id_modelo,k_optimo,estados_fusionados,detalle_clusters
+4,1640,33,5,ninguno,cluster4=P0.10kW(σ0.22)n=80→apagado; cluster1=P1.83kW(σ0.14)n=402→vacio; cluster3=P3.20kW(σ0.17)n=400→ligera; cluster2=P5.39kW(σ0.19)n=479→media; cluster0=P7.74kW(σ0.18)n=280→plena

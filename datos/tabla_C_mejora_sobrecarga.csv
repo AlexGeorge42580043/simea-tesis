@@ -1,0 +1,6 @@
+﻿Intensidad;Fórmula original (techo 120%);Fórmula ajustada (techo 140%)
+0,1;No detecta;No detecta
+0,3;No detecta;No detecta
+0,5;No detecta;AVISO
+0,7;No detecta;ALERTA
+1,0;AVISO (mayoría de los estados);ALERTA

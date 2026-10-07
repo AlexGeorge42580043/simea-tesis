@@ -1,0 +1,26 @@
+caso,estado,intensidad,esperado_detecta,esperado_severidad,detectada,severidad_real,firma_real,timestamp_alerta,resultado
+1,apagado,0.1,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+2,apagado,0.3,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+3,apagado,0.5,True,AVISO,False,,,,FALSO_NEGATIVO
+4,apagado,0.7,True,ALERTA,False,,,,FALSO_NEGATIVO
+5,apagado,1.0,True,ALERTA,False,,,,FALSO_NEGATIVO
+6,vacio,0.1,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+7,vacio,0.3,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+8,vacio,0.5,True,AVISO,True,AVISO,Potencia: aumento significativo (3.0σ) | Corriente: aumento leve (3.0σ),2026-09-29T02:36:27.824000+00:00,MEJORA_CONFIRMADA
+9,vacio,0.7,True,ALERTA,True,ALERTA,Potencia: aumento significativo (3.9σ) | Corriente: aumento significativo (3.7σ) | Factor de potencia: aumento leve (2.0σ),2026-09-29T02:37:20.911000+00:00,MEJORA_CONFIRMADA
+10,vacio,1.0,True,ALERTA,True,ALERTA,Potencia: aumento significativo (4.9σ) | Corriente: aumento significativo (4.5σ) | Factor de potencia: aumento leve (2.3σ),2026-09-29T02:38:15.984000+00:00,MEJORA_CONFIRMADA
+11,ligera,0.1,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+12,ligera,0.3,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+13,ligera,0.5,True,AVISO,True,AVISO,Potencia: aumento significativo (3.1σ) | Corriente: aumento leve (2.9σ),2026-09-29T02:41:14.250000+00:00,MEJORA_CONFIRMADA
+14,ligera,0.7,True,ALERTA,True,ALERTA,Potencia: aumento significativo (3.8σ) | Corriente: aumento significativo (3.6σ) | Factor de potencia: aumento leve (2.0σ),2026-09-29T02:42:07.325000+00:00,MEJORA_CONFIRMADA
+15,ligera,1.0,True,ALERTA,True,ALERTA,Potencia: aumento significativo (4.9σ) | Corriente: aumento significativo (4.6σ) | Factor de potencia: aumento leve (2.4σ),2026-09-29T02:43:02.400000+00:00,MEJORA_CONFIRMADA
+16,media,0.1,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+17,media,0.3,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+18,media,0.5,True,AVISO,True,AVISO,Potencia: aumento significativo (3.2σ) | Corriente: aumento leve (3.0σ),2026-09-29T02:45:56.640000+00:00,MEJORA_CONFIRMADA
+19,media,0.7,True,ALERTA,True,ALERTA,Potencia: aumento significativo (3.8σ) | Corriente: aumento significativo (3.6σ) | Factor de potencia: aumento leve (2.1σ),2026-09-29T02:46:49.714000+00:00,MEJORA_CONFIRMADA
+20,media,1.0,True,ALERTA,True,ALERTA,Potencia: aumento significativo (4.8σ) | Corriente: aumento significativo (4.6σ) | Factor de potencia: aumento leve (2.2σ),2026-09-29T02:47:45.791000+00:00,MEJORA_CONFIRMADA
+21,plena,0.1,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+22,plena,0.3,False,NO_DETECTA,False,,,,OK_SIN_DETECCION
+23,plena,0.5,True,AVISO,True,AVISO,Potencia: aumento significativo (3.0σ) | Corriente: aumento leve (2.8σ),2026-09-29T02:50:47.112000+00:00,MEJORA_CONFIRMADA
+24,plena,0.7,True,ALERTA,True,ALERTA,Potencia: aumento significativo (3.8σ) | Corriente: aumento significativo (3.5σ),2026-09-29T02:51:40.189000+00:00,MEJORA_CONFIRMADA
+25,plena,1.0,True,ALERTA,True,ALERTA,Potencia: aumento marcado (5.0σ) | Corriente: aumento significativo (4.6σ) | Factor de potencia: aumento leve (2.3σ),2026-09-29T02:52:34.269000+00:00,MEJORA_CONFIRMADA

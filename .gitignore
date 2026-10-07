@@ -1,0 +1,50 @@
+# Entornos virtuales de Python
+venv/
+env/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Variables de entorno con credenciales
+.env
+*.env.local
+
+# Node
+node_modules/
+npm-debug.log*
+
+# IDE / Editores
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Build / Output
+dist/
+build/
+*.egg-info/
+.pytest_cache/
+.coverage
+
+# InfluxDB / PostgreSQL datos locales
+data/influxdb/
+data/postgres/
+*.sql.bak
+
+# Logs
+*.log
+logs/
+
+# Archivos temporales
+*.tmp
+*.bak
+
+# Modelos entrenados (se generan localmente)
+*.pkl
+*.joblib
+modelos/entrenados/
