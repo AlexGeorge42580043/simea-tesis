@@ -1,4 +1,4 @@
-# SIMEA — Sistema Inteligente de Monitoreo de Equipos Automatizados
+# SIMEA — Sistema Integrado de Monitoreo Energético y Anomalías
 
 Sistema de monitoreo energético basado en IoT para la detección automatizada de anomalías en el consumo eléctrico de equipos industriales mediante técnicas de aprendizaje automático no supervisado.
 
